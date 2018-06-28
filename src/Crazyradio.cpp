@@ -29,7 +29,7 @@ Crazyradio::Crazyradio(
     , m_ackEnable(true)
 {
     open(devid);
-    setDatarate(Datarate_2MPS);
+    setDatarate(Datarate_250KPS); // setDatarate(Datarate_2MPS);
     setChannel(2);
     setContCarrier(false);
     setAddress(0xE7E7E7E7E7);

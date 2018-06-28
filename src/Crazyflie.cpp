@@ -1305,7 +1305,7 @@ void CrazyflieBroadcaster::sendExternalPositions(
   }
 }
 
-static float const POSITION_LIMIT = 8.0f; // meters
+static float const POSITION_LIMIT = 15.0f; // meters 
 static const uint32_t INT24_MAX = 8388607;
 static inline posFixed24_t position_float_to_fix24(float x)
 {
@@ -1333,7 +1333,7 @@ static inline uint32_t quatcompress(float const q[4])
   // this avoids having to send its sign bit.
   unsigned negate = q[i_largest] < 0;
 
-  // 1/sqrt(2) is the largest possible value 
+  // 1/sqrt(2) is the largest possible value
   // of the second-largest element in a unit quaternion.
 
   // do compression using sign bit and 9-bit precision per element.

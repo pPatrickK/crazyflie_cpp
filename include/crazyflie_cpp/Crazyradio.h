@@ -15,7 +15,7 @@ public:
     {
         Datarate_250KPS = 0,
         Datarate_1MPS   = 1,
-        Datarate_2MPS   = 2,
+        Datarate_2MPS   = 0, //Datarate_2MPS   = 2,
     };
 
     enum Power
