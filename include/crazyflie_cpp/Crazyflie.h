@@ -331,7 +331,11 @@ public:
 
   void takeoff(float height, float duration, uint8_t groupMask = 0);
 
+  void takeoff2(float height, float yaw, bool useCurrentYaw, float duration, uint8_t groupMask = 0);
+
   void land(float height, float duration, uint8_t groupMask = 0);
+
+  void land2(float height, float yaw, bool useCurrentYaw, float duration, uint8_t groupMask = 0);
 
   void stop(uint8_t groupMask = 0);
 
@@ -902,7 +906,11 @@ public:
   // High-Level setpoints
   void takeoff(float height, float duration, uint8_t groupMask = 0);
 
+  void takeoff2(float height, float yaw, bool useCurrentYaw, float duration, uint8_t groupMask = 0);
+  
   void land(float height, float duration, uint8_t groupMask = 0);
+  
+  void land2(float height, float yaw, bool useCurrentYaw, float duration, uint8_t groupMask = 0);
 
   void stop(uint8_t groupMask = 0);
 

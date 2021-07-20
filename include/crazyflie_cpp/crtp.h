@@ -1271,6 +1271,61 @@ struct crtpCommanderHighLevelDefineTrajectoryRequest
 } __attribute__((packed));
 CHECKSIZE(crtpCommanderHighLevelDefineTrajectoryRequest)
 
+struct crtpCommanderHighLevelTakeoff2Request
+{
+  crtpCommanderHighLevelTakeoff2Request(
+    uint8_t groupMask,
+    float height,
+    float yaw,
+    bool useCurrentYaw,
+    float duration)
+    : header(0x08, 0)
+    , command(7)
+    , groupMask(groupMask)
+    , height(height)
+    , yaw(yaw)
+    , useCurrentYaw(useCurrentYaw)
+    , duration(duration)
+    {
+    }
+
+    const crtp header;
+    const uint8_t command;
+    uint8_t groupMask;        // mask for which CFs this should apply to
+    float height;             // m (absolute)
+    float yaw;                // rad
+    bool useCurrentYaw;       // If true, use the current yaw (ignore the yaw parameter)
+    float duration;           // s (time it should take until target height is reached)
+} __attribute__((packed));
+CHECKSIZE(crtpCommanderHighLevelTakeoff2Request)
+
+struct crtpCommanderHighLevelLand2Request
+{
+  crtpCommanderHighLevelLand2Request(
+    uint8_t groupMask,
+    float height,
+    float yaw,
+    bool useCurrentYaw,
+    float duration)
+    : header(0x08, 0)
+    , command(8)
+    , groupMask(groupMask)
+    , height(height)
+    , yaw(yaw)
+    , useCurrentYaw(useCurrentYaw)
+    , duration(duration)
+    {
+    }
+
+    const crtp header;
+    const uint8_t command;
+    uint8_t groupMask;        // mask for which CFs this should apply to
+    float height;             // m (absolute)
+    float yaw;                // rad
+    bool useCurrentYaw;       // If true, use the current yaw (ignore the yaw parameter)
+    float duration;           // s (time it should take until target height is reached)
+} __attribute__((packed));
+CHECKSIZE(crtpCommanderHighLevelLand2Request)
 // Port 13 (Platform)
 
 struct crtpGetProtocolVersionRequest

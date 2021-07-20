@@ -1414,9 +1414,21 @@ void Crazyflie::takeoff(float height, float duration, uint8_t groupMask)
   sendPacketOrTimeout(req);
 }
 
+void Crazyflie::takeoff2(float height, float yaw, bool useCurrentYaw,float duration, uint8_t groupMask)
+{
+  crtpCommanderHighLevelTakeoff2Request req(groupMask, height, yaw, useCurrentYaw, duration);
+  sendPacketOrTimeout(req);
+}
+
 void Crazyflie::land(float height, float duration, uint8_t groupMask)
 {
   crtpCommanderHighLevelLandRequest req(groupMask, height, duration);
+  sendPacketOrTimeout(req);
+}
+
+void Crazyflie::land2(float height, float yaw, bool useCurrentYaw, float duration, uint8_t groupMask)
+{
+  crtpCommanderHighLevelLand2Request req(groupMask, height, yaw, useCurrentYaw, duration);
   sendPacketOrTimeout(req);
 }
 
@@ -1611,9 +1623,21 @@ void CrazyflieBroadcaster::takeoff(float height, float duration, uint8_t groupMa
   sendPacket((uint8_t*)&req, sizeof(req));
 }
 
+void CrazyflieBroadcaster::takeoff2(float height, float yaw, bool useCurrentYaw,float duration, uint8_t groupMask)
+{
+  crtpCommanderHighLevelTakeoff2Request req(groupMask, height, yaw, useCurrentYaw, duration);
+  sendPacket((uint8_t*)&req, sizeof(req));
+}
+
 void CrazyflieBroadcaster::land(float height, float duration, uint8_t groupMask)
 {
   crtpCommanderHighLevelLandRequest req(groupMask, height, duration);
+  sendPacket((uint8_t*)&req, sizeof(req));
+}
+
+void CrazyflieBroadcaster::land2(float height, float yaw, bool useCurrentYaw, float duration, uint8_t groupMask)
+{
+  crtpCommanderHighLevelLand2Request req(groupMask, height, yaw, useCurrentYaw, duration);
   sendPacket((uint8_t*)&req, sizeof(req));
 }
 
